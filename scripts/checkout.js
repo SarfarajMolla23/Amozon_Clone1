@@ -10,7 +10,6 @@ import { hello } from "https://unpkg.com/supersimpledev@1.0.1/hello.esm.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions } from "../data/deliveryOptions.js";
 
-hello();
 
 const today = dayjs();
 const deliveryDate = today.add(7, "days");
@@ -39,7 +38,8 @@ cart.forEach((cartItem) => {
     }
   });
   const today = dayjs();
-  const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
+  const deliveryDate = today.add(
+    deliveryOption.deliveryDays, "days");
   const dateString = deliveryDate.format("dddd, MMMM D");
 
   cartSummaryHTML += `
@@ -93,11 +93,13 @@ cart.forEach((cartItem) => {
 });
 
 function deliveryOptionsHTML(matchingProduct, cartItem) {
-  let html = "";
+  let html = '';
 
   deliveryOptions.forEach((deliveryOption) => {
     const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
+    const deliveryDate = today.add(
+      deliveryOption.deliveryDays,'days');
+
     const dateString = deliveryDate.format("dddd, MMMM D");
 
     const priceString =
