@@ -136,6 +136,7 @@ document.querySelectorAll('.js-update-link')
   .forEach((link) => {
     link.addEventListener('click', () => {
       const productId = link.dataset.productId;
+
       const container = document.querySelector(
         `.js-cart-item-container-${productId}`
       );
@@ -153,13 +154,13 @@ document.querySelectorAll('.js-update-link')
       );
       const newQuantity = Number(quantityInput.value);
 
-      if(newQuantity <0 || newQuantity >= 1000){
+      if(newQuantity < 0 || newQuantity >= 1000){
         alert('Quantity must be at least 0 and less than 1000');
         return;
       }
       updateQuantity(productId, newQuantity);
 
-      const conatainer = document.querySelector(`.js-cart-item-conatiner-${productId}`);
+      const container = document.querySelector(`.js-cart-item-container-${productId}`);
 
       container.classList.remove('is-editing-quantity');
 
