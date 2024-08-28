@@ -30,3 +30,4 @@ if (formatCurrency(2000.4) === '20.00'){
 }else{
   console.log('failed');
 }
+
