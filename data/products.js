@@ -39,10 +39,14 @@ class Product {
   }
 }
 
+// This is inheritance use extends to enter into parent 
+// class 
 class Clothing extends Product {
   sizeChartLink;
 
   constructor(productDetails) {
+    // use super to get parent class constructor 
+     // Product details
     super(productDetails);
     this.sizeChartLink = productDetails.sizeChartLink;
   }
@@ -55,6 +59,45 @@ class Clothing extends Product {
     `;
   }
 }
+
+/*
+// this object give the current date and time
+const date = new Date();
+console.log(date);
+
+// this object give the current time
+console.log(date.toLocaleTimeString());
+*/
+/*
+console.log(this);
+// If we inside a method we can use (this) to point 
+// towards object  and if we outside method we cannot 
+// point towrads object using (this). 
+const object2 ={
+  a:2,
+  b: this.a
+};
+*/
+/*
+// Inside a method, 'this' points to the outer object.
+
+// Inside a function (this) = undefined
+// But we can change it whatever we want 
+function logThis(){
+    console.log(this);
+}
+logThis();
+logThis.call('hello');
+
+// Arrow function , do not change the value of this
+this
+const object3 = {
+     method: ()=>{
+      console.log(this);
+     }
+};
+object3.method();
+*/
 
 export const products = [
   {
