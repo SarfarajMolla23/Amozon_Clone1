@@ -115,7 +115,7 @@ class Cart {
 }
 
 // Each objects we generate from class is called an (instance) of class
-const cart = new Cart("cart-oop");
+export const cart = new Cart("cart-oop");
 const businessCart = new Cart("cart-business");
 
 
