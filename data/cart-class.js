@@ -95,8 +95,10 @@ class Cart {
     this.cartItems.forEach((cartItem) => {
       cartQuantity += cartItem.quantity;
     });
-
+    
+    this.saveToStorage();
     return cartQuantity;
+   
   }
 
   updateQuantity(productId, newQuantity) {
