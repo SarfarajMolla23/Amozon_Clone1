@@ -1,4 +1,4 @@
-import { cart, calculateCartQuantity } from "../../data/cart.js";
+import { cart, calculateCartQuantity, resetCart } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js";
@@ -82,7 +82,8 @@ export function renderPaymentSummary() {
       } catch (error) {
         console.log("Unexpected error, Try again later.");
       }
-
-      window.location.href = 'orders.html';
+      // Extra feature: make the cart empty after creating an order.
+      resetCart();
+      window.location.href = "orders.html";
     });
 }

@@ -2,7 +2,7 @@ import { cart, addToCart, calculateCartQuantity } from "../data/cart.js";
 import { products, loadProducts } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
-// This function is called Callback - a function to run in 
+// This function is called Callback - a function to run in
 // the future.
 loadProducts(renderProductsGrid);
 
@@ -10,7 +10,7 @@ function renderProductsGrid() {
   let productsHTML = "";
 
   const url = new URL(window.location.href);
-  const search = url.searchParams.get('search');
+  const search = url.searchParams.get("search");
 
   let filteredProducts = products;
 
@@ -26,8 +26,10 @@ function renderProductsGrid() {
         }
       });
 
-      return matchingKeyword ||
-        product.name.toLowerCase().includes(search.toLowerCase());
+      return (
+        matchingKeyword ||
+        product.name.toLowerCase().includes(search.toLowerCase())
+      );
     });
   }
 
@@ -107,9 +109,18 @@ function renderProductsGrid() {
     });
   });
 
-document.querySelector('.js-search-button')
-    .addEventListener('click', () => {
-      const search = document.querySelector('.js-search-bar').value;
-      window.location.href = `amazon.html?search=${search}`;
+  document.querySelector(".js-search-button").addEventListener("click", () => {
+    const search = document.querySelector(".js-search-bar").value;
+    window.location.href = `amazon.html?search=${search}`;
+  });
+
+  // Extra feature: searching by pressing "Enter" on the keyboard.
+  document
+    .querySelector(".js-search-bar")
+    .addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        const searchTerm = document.querySelector(".js-search-bar").value;
+        window.location.href = `amazon.html?search=${searchTerm}`;
+      }
     });
-  }
+}

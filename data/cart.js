@@ -1,4 +1,4 @@
-import {validDeliveryOption} from './deliveryOptions.js';
+import { validDeliveryOption } from "./deliveryOptions.js";
 
 export let cart;
 
@@ -95,7 +95,7 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
       matchingItem = cartItem;
     }
   });
-  if(!matchingItem){
+  if (!matchingItem) {
     return;
   }
   if (!validDeliveryOption(deliveryOptionId)) {
@@ -106,7 +106,6 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
 
   saveToStorage();
 }
-
 
 export function loadCart(fun) {
   const xhr = new XMLHttpRequest();
@@ -120,10 +119,15 @@ export function loadCart(fun) {
   xhr.send();
 }
 
-export async function loadCartFetch(){
-   const response = await fetch(
-    'https://supersimplebackend.dev/cart');
-   const text = await response.text();
-   console.log(text);
-   return text ;
+export async function loadCartFetch() {
+  const response = await fetch("https://supersimplebackend.dev/cart");
+  const text = await response.text();
+  console.log(text);
+  return text;
+}
+
+// Extra feature: make the cart empty after creating an order.
+export function resetCart() {
+  cart = [];
+  saveToStorage();
 }
